@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CoMat: Aligning Text-to-Image Diffusion Model
+        with Image-to-Text Concept Matching">
+  <meta name="keywords" content="CoMat">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> CoMat: Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+/Users/panlu/Library/Mobile Documents/com~apple~CloudDocs/ImageMath/visual-mathqa-server/data_final/images
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link rel="icon" href="./static/images/comat_icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://mathvista.github.io/">
+            <b>MathVista</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://github.com/OpenGVLab/LLaMA-Adapter">
+            <b>LLaMA-Adapter (V2)</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://github.com/Alpha-VLLM/LLaMA2-Accessory/tree/main/SPHINX">
+            <b>SPHINX-X</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>
+          </a>
+          <a class="navbar-item" href="https://github.com/OpenGVLab/LLaMA-Adapter/tree/main/imagebind_LLM">
+            ImageBind-LLM
+          </a>
+          <a class="navbar-item" href="https://github.com/Alpha-VLLM/LLaMA2-Accessory/tree/main/SPHINX">
+            SPHINX
+          </a>
+          <a class="navbar-item" href="https://github.com/ZiyuGuo99/Point-Bind_Point-LLM">
+            Point-Bind & Point-LLM
+          </a>
+          <a class="navbar-item" href="https://github.com/ZrrSkywalker/Personalize-SAM">
+            PerSAM
+          </a>
+          <a class="navbar-item" href="https://github.com/mathllm/MathCoder">
+            MathCoder
+          </a>
+          <a class="navbar-item" href="https://wangk.org/publications/1_iclr2024_csv/">
+            CSV
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="mathvista" style="vertical-align: middle">💫CoMat</span>
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/CaraJ7">Dongzhi Jiang</a><sup style="color:#6fbf73;">1</sup><sup style="color:#000000;">,</sup><sup style="color:#ed4b82;">2</sup>,</span>
+            <span class="author-block">
+              <a href="https://songguanglu.github.io/">Guanglu Song</a><sup style="color:#ed4b82;">2</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/tgxs002">Xiaoshi Wu</a><sup style="color:#6fbf73;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zrrskywalker.github.io/">Renrui Zhang</a><sup style="color:#6fbf73">1</sup><sup style="color:#000000;">,</sup><sup style="color:#ffac33">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=5vSh09YAAAAJ&hl=zh-CN">Dazhong Shen</a><sup style="color:#ffac33">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=vls0YhoAAAAJ&hl=zh-CN">Zhuofan Zong</a><sup style="color:#ed4b82">2</sup>,
+            </span><br>
+            <span class="author-block">
+              <a href="https://liuyu.us/">Yu Liu</a><sup style="color:#ed4b82;">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a><sup style="color:#6fbf73">1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>CUHK MMLab,</span><br>
+            <span class="author-block"><sup style="color:#ed4b82">2</sup>SenseTime Research,</span>
+            <span class="author-block"><sup style="color:#ffac33">3</sup>Shanghai AI Laboratory</span><br>
+            <!-- <span class="paper-block"><b style="color:#f41c1c">ICLR 2024 Oral</b> (85 in 7304, 1.2%)</span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <!-- @PAN TODO: change links -->
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                <!-- <a href="https://lupantech.github.io/papers/arxiv23_mathvista.pdf"
+                   class="external-link button is-normal is-rounded is-dark"> -->
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/CaraJ7/CoMat"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="content has-text-centered">
+      <img src="static/images/demo1_cat.png" alt="algebraic reasoning" width="60%"/>
+    </div>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have demonstrated great success in the field of text-to-image generation. However, alleviating the misalignment between the text prompts and images is still challenging.
+            The root reason behind the misalignment has not been extensively investigated. We observe that the misalignment is caused by inadequate token attention activation. We further <b>attribute this phenomenon to the diffusion model's insufficient condition utilization</b>, which is caused by its training paradigm. 
+          </p>
+          <p>
+            To address the issue, we propose 💫<span class="mathvista">CoMat</span>, <b>an end-to-end diffusion model fine-tuning strategy</b> with an image-to-text concept matching mechanism. <b>We leverage an image captioning model to measure image-to-text alignment and guide the diffusion model to revisit ignored tokens</b>. A novel attribute concentration module is also proposed to address the attribute binding problem. 
+          </p> 
+          <p>
+            <b>Without any image or human preference data</b>, we use <b>only 20K text prompts</b> to fine-tune SDXL to obtain CoMat-SDXL. Extensive experiments show that CoMat-SDXL significantly outperforms the baseline model SDXL in two text-to-image alignment benchmarks and achieves start-of-the-art performance.
+          </p> 
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+            
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            The text-to-image diffusion model (T2I-Model) first generates an image according to the text prompt. Then the image is sent to the <b>Concept Matching</b> module, <b>Attribute Concentration</b> module, and <b>Fidelity Preservation</b> module to compute the loss for fine-tuning the online T2I-Model.
+          </p>
+          <p>
+            Specifically, we leverage an image captioning model to supervise the diffusion model to sufficiently attend to each concept in the text prompt in the Concept Matching module. In the Attribute Concentration module, we promote the consistency of the attention map of each entity's noun and attributes. Finally, in the Fidelity Preservation module, we introduce a novel adversarial loss to conserve the generation quality of the online fine-tuning model.
+          </p>
+
+      </div> 
+      <div class="content has-text-centered">
+        <img src="static/images/framework3.png" alt="algebraic reasoning" width="80%"/>
+        <p> Overview of 💫<span class="mathvista">CoMat</span>. 
+      </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Visualizations</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sup_demo1.png" alt="" width="40%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sup_demo1-2.png" alt="" width="40%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/sup_demo1-3.png" alt="" width="40%"/>
+            </div>
+          </div>
+        </div>
+
+
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.cuhk.edu.hk/chinese/index.html" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/cuhk.png">
+    </a>
+  <div class="section" id="org-banners" style="display:flex">
+      <a href="https://www.sensetime.com/cn" target="_blank" rel="external">
+          <img class="center-block org-banner" src="static/images/sensetime.png">
+      </a>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.shlab.org.cn/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/shlab.png">
+    </a>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://mathvista.github.io/">MathVista</a> and <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
