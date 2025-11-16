@@ -26,3 +26,9 @@ I will be entering the job market in 2027. Please feel free to reach out if you 
 
 {% include_relative includes/news.md %}
 {% include_relative includes/pub.md %}
+
+<span class='anchor' id='projects'></span>
+# 🛠️ Projects
+
+- [UlmEvalkit: An open-source toolkit for evaluating unified large multi-modal models and generative models](https://github.com/ULMEvalKit/ULMEvalKit)<br>
+**Dongzhi Jiang**, Renrui Zhang, Yankai Shu, Yuyang Peng, Zhuofan Zong, Yuchen Duan, Zihao Wang, Jiaming Liu, Hao Chen, Ziyu Guo, Junyan Ye, Rui Liu, Pheng Ann Heng, Shanghang Zhang, Hongsheng Li.

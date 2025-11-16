@@ -51,8 +51,3 @@ Zhuofan Zong, **Dongzhi Jiang**, Bingqi Ma, Guanglu Song, Hao Shao, Dazhong Shen
 
 - <span class="conference-tag">ICCV 2023</span> [Temporal Enhanced Training of Multi-view 3D Object Detector via Historical Object Prediction](https://arxiv.org/pdf/2304.00967.pdf)<br>
 Zhuofan Zong\*, **Dongzhi Jiang**\*, Guanglu Song, Zeyue Xue, Jingyong Su, Hongsheng Li, Yu Liu.
-
-# 🛠️ Projects
-
-- [UlmEvalkit: An open-source toolkit for evaluating unified large multi-modal models and generative models](https://github.com/ULMEvalKit/ULMEvalKit)<br>
-**Dongzhi Jiang**, Renrui Zhang, Yankai Shu, Yuyang Peng, Zhuofan Zong, Yuchen Duan, Zihao Wang, Jiaming Liu, Hao Chen, Ziyu Guo, Junyan Ye, Rui Liu, Pheng Ann Heng, Shanghang Zhang, Hongsheng Li.
