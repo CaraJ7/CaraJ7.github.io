@@ -107,3 +107,30 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.conference-tag {
+    background-color: #8e82dc;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em
+}
+
+.preprint-tag {
+    background-color: #F4A460;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em
+}
+
+.report-tag {
+    background-color: #73a2db;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em
+}
