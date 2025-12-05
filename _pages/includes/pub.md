@@ -2,7 +2,7 @@
 
 ## o1/R1-like CoT Reasoning for Generation
 
-- <span class="preprint-tag">Arxiv</span> [DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation]()<br>
+- <span class="preprint-tag">Arxiv</span> [DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation](https://arxiv.org/pdf/2512.05112)<br>
 **Dongzhi Jiang**, Renrui Zhang, Haodong Li, Zhuofan Zong, Ziyu Guo, Jun He, Claire Guo, Junyan Ye, Rongyao Fang, Weijia Li, Rui Liu, Hongsheng Li.
 
 - <span class="conference-tag">NeurIPS 2025</span> [T2I-R1: Reinforcing Image Generation with Collaborative Semantic-level and Token-level CoT](https://arxiv.org/abs/2505.00703)<br>
