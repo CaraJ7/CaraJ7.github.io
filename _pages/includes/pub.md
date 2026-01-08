@@ -11,10 +11,10 @@
 - <span class="preprint-tag">Arxiv</span> [Echo-4o: Harnessing the Power of GPT-4o Synthetic Images for Improved Image Generation](https://arxiv.org/abs/2508.09987)<br>
 Junyan Ye\*, **Dongzhi Jiang**\*, Zihao Wang, Leqi Zhu, Zhenghao Hu, Zilong Huang, Jun He, Zhiyuan Yan, Jinghua Yu, Hongsheng Li, Conghui He, Weijia Li.
 
-- <span class="preprint-tag">Arxiv</span> [RealGen: Photorealistic Text-to-Image Generation via Detector-Guided Rewards](https://arxiv.org/abs/2512.00473) ~$\vert$~ [Github](https://github.com/yejy53/RealGen)<br>
+- <span class="preprint-tag">Arxiv</span> [RealGen: Photorealistic Text-to-Image Generation via Detector-Guided Rewards](https://arxiv.org/abs/2512.00473)<br>
 Junyan Ye, Leiqi Zhu, Yuncheng Guo, **Dongzhi Jiang**, Zilong Huang, Yifan Zhang, Zhiyuan Yan, Haohuan Fu, Conghui He, Weijia Li.
 
-- <span class="preprint-tag">Arxiv</span> [Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation](https://arxiv.org/abs/2512.10949) ~$\vert$~ [Github](https://github.com/Ivan-Tang-3D/3DGen-R1)<br>
+- <span class="preprint-tag">Arxiv</span> [Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation](https://arxiv.org/abs/2512.10949)<br>
 Yiwen Tang, Zoey Guo, Kaixin Zhu, Ray Zhang, Qizhi Chen, **Dongzhi Jiang**, Junli Liu, Bohan Zeng, Haoming Song, Delin Qu, Tianyi Bai, Dan Xu, Wentao Zhang, Bin Zhao.
 
 - <span class="blog-tag">Blog</span> [Nano-Consistent-150K](https://picotrex.github.io/Awesome-Nano-Banana-images/)<br>
